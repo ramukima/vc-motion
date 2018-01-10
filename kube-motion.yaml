@@ -39,6 +39,11 @@ spec:
             privileged: true
           image: vc-motion
           imagePullPolicy: IfNotPresent
+          env:
+          - name: PUID
+            value: "0"
+          - name: PGID
+            value: "0"
           volumeMounts:
           - mountPath: /dev/video0
             name: webcam
