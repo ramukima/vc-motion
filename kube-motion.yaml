@@ -14,9 +14,9 @@ spec:
       protocol: TCP
       targetPort: 8081
       name: mdetect
-    - port: 8082
+    - port: 8080
       protocol: TCP
-      targetPort: 8082
+      targetPort: 8080
       name: mremote
   selector:
     app: motion
@@ -55,7 +55,7 @@ spec:
             name: scripts
           ports:
           - containerPort: 8081
-          - containerPort: 8082
+          - containerPort: 8080
       volumes:
       - name: webcam
         hostPath:
