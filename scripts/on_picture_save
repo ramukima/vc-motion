@@ -4,8 +4,8 @@ echo "Analyzing picture frame $1 ..." >> /home/nobody/motioneye/log/motion.log
 FRAME=$1
 
 if [ -z "$FACEBOX_URL" ]; then
-    FACEBOX_URL="http://facebox.192.168.1.202.xip.io"
+    FACEBOX_URL="http://facebox.192.168.1.230.xip.io"
 fi
 
-curl -X POST -H "Content-Type: multipart/form-data; charset=utf-8" -H "Accept: application/json; charset=utf-8" -F "file=@$FRAME" $FACEBOX_URL/facebox/similar >> /home/nobody/motioneye/log/motion.log
+curl --connect-timeout 2 --max-time 30 -X POST -H "Content-Type: multipart/form-data; charset=utf-8" -H "Accept: application/json; charset=utf-8" -F "file=@$FRAME" http://frekon.frekon.svc.cluster.local/faceid >> /home/nobody/motioneye/log/motion.log
 
